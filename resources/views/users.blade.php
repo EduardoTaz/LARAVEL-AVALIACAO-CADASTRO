@@ -10,24 +10,26 @@
         <thead>
             <tr>
                 <th>Nome</th>
-                <th>Descrição</th>
-                <th>Preço</th>
+                <th>CPF</th>
+                <th>Email</th>
                 <th>Ações</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($produtos as $produto)
+            @foreach ($users as $user)
                 <tr>
-                    <td>{{$produto->nome}}</td>
-                    <td>{{$produto->descricao}}</td>
-                    <td>{{$produto->preco}}</td>
+                    <td>{{$user->name}}</td>
+                    <td>{{$user->cpf}}</td>
+                    <td>{{$user->email}}</td>
                     <td>
-                        <form method="post" action="/deletar_produto/{{$produto->id}}">
+                        <form method="post" action="/deletar_usuario/{{$user->id}}">
                             @csrf
                             {{method_field("DELETE") }} 
                             <input type="submit" value="Deletar">
                         </form>
+                        <a href="/editar_usuario/{{$user->id}}">Editar</a>
                     </td>
+
                 </tr>
             @endforeach
         </tbody>

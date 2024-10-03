@@ -25,4 +25,12 @@ class ClienteController extends Controller
     public function formCriarCliente() {
         return view("cadastro_cliente");
     }
+
+    public function formDeletarCliente($id) {
+        $cliente = new Cliente; // instancia user
+        
+        $cliente -> find($id) -> delete(); // deleta o cadastro
+
+        return redirect('/listar_clientes');
+    }
 }

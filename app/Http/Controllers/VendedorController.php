@@ -25,4 +25,12 @@ class VendedorController extends Controller
     public function formCriarVendedor() {
         return view("cadastro_vendedor");
     }
+
+    public function formDeletarVendedor($id) {
+        $vendedor = new Vendedor; // instancia vendedor
+        
+        $vendedor -> find($id) -> delete(); // deleta o cadastro
+
+        return redirect('/listar_vendedores');
+    }
 }

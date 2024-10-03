@@ -25,5 +25,13 @@ class ProdutoController extends Controller
     public function formCriarProduto() {
         return view("cadastro_produto");
     }
+
+    public function formDeletarProduto($id) {
+        $produto = new Produto; // instancia produto
+        
+        $produto -> find($id) -> delete(); // deleta o cadastro
+
+        return redirect('/listar_produtos');
+    }
 }
 
