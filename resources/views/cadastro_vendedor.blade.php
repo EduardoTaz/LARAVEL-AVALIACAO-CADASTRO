@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cadastro vendedor</title>
-    <link rel="stylesheet" href="../css/vendedor.css">
+    <link rel="stylesheet" href="{{url('css/vendedor.css')}}">
 </head>
 <body>
     <form action="/criar_vendedor" method="post">

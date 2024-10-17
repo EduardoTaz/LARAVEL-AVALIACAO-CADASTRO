@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuários</title>
+    <title>Vendedores</title>
 </head>
 <body>
+    @if ($vendedores->isEmpty())
+        <h1>Lista vazia, cadastre um novo vendedor</h1>
+        <button><a href="/cadastro_vendedor">Cadastrar vendedor</a></button>
+    @else
     <table border="1" width="40%">
         <thead>
             <tr>
@@ -27,10 +31,12 @@
                             {{method_field("DELETE") }} 
                             <input type="submit" value="Deletar">
                         </form>
+                        <a href="/editar_vendedor/{{$vendedor->id}}">Editar</a>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
+    @endif
 </body>
 </html>

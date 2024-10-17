@@ -1,0 +1,35 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(to bottom, #151F32, #233851);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.link-groups a {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #161616;
+    text-decoration: none;  
+    font-size: 18px;
+    padding: 20px;
+}
+
+.link-groups button {
+    border-radius: 10px;
+    height: 50px;
+    width: 200px;
+    margin-top: 50px;
+    margin-left: 10px;
+    animation: .5s ease;
+}
+
+.link-groups button:hover {
+    background-color: #dedede;
+}

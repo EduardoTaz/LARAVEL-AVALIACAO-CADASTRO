@@ -16,8 +16,16 @@ class ProdutoController extends Controller
         return redirect('/listar_produtos');
     }
 
-    public function listar() {
+    public function listar(Request $request) {
         $produtos = Produto::all();
+
+        /*
+        if ($produtos -> isEmpty()) {
+            echo "Lista vazia, cadastre um novo produto";
+        } else {
+            return view("produtos", ["produtos"=>$produtos]);
+        }
+        */
 
         return view("produtos", ["produtos"=>$produtos]);
     }
@@ -30,6 +38,23 @@ class ProdutoController extends Controller
         $produto = new Produto; // instancia produto
         
         $produto -> find($id) -> delete(); // deleta o cadastro
+
+        return redirect('/listar_produtos');
+    }
+
+    public function formEditarProduto($id) {
+        $produto = Produto::find($id);
+
+        return view("editar_produto", ["produto" => $produto]);
+
+    }
+
+    public function editar(Request $request) {
+        Produto::where('id', $request->id) -> update([
+            'nome' => $request -> nome,
+            'descricao' => $request -> descricao,
+            'preco' => $request -> preco
+        ]);
 
         return redirect('/listar_produtos');
     }
