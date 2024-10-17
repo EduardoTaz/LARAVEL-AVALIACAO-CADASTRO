@@ -27,9 +27,26 @@ class ClienteController extends Controller
     }
 
     public function formDeletarCliente($id) {
-        $cliente = new Cliente; // instancia user
+        $cliente = new Cliente; // instancia cliente
         
         $cliente -> find($id) -> delete(); // deleta o cadastro
+
+        return redirect('/listar_clientes');
+    }
+
+    public function formEditarCliente($id) {
+        $cliente = Cliente::find($id);
+
+        return view("editar_cliente", ["cliente" => $cliente]);
+
+    }
+
+    public function editar(Request $request) {
+        Cliente::where('id', $request->id) -> update([
+            'nome' => $request -> nome,
+            'cpf' => $request -> cpf,
+            'email' => $request -> email
+        ]);
 
         return redirect('/listar_clientes');
     }
